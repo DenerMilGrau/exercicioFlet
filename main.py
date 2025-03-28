@@ -1,6 +1,4 @@
 import flet as ft
-
-from flet.core.app_bar import AppBar
 from flet import AppBar, ElevatedButton, Text, Colors, View
 from flet.core.textfield import TextField
 
@@ -25,7 +23,8 @@ def main(page: ft.Page):
                     ElevatedButton(text='Enviar',
                                    width=page.window.width,
                                    on_click=lambda _: page.go('/exibir'))
-                ]
+                ],
+                bgcolor=Colors.PRIMARY_CONTAINER,
             )
         )
         if page.route == '/exibir':
