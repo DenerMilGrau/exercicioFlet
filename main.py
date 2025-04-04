@@ -22,7 +22,10 @@ def main(page: ft.Page):
                     input_nome,
                     ElevatedButton(text='Enviar',
                                    width=page.window.width,
-                                   on_click=lambda _: page.go('/exibir'))
+                                   on_click=lambda _: page.go('/exibir')),
+                    # slider_salario,
+                    # txt_slider,
+                    salario
                 ],
                 bgcolor=Colors.PRIMARY_CONTAINER,
             )
@@ -44,12 +47,17 @@ def main(page: ft.Page):
         top_view = page.views[-1]
         page.go(top_view.route)
 
+    def altera(e):
+        # txt_slider.value = 'pkkkkkkkkkkkkk' + str(int(slider_salario.value))
+        page.update()
     page.on_route_change = gerencia_rotas
     page.go(page.route)
     page.on_view_pop = volta
 
     #     Criação de componentes
     input_nome = ft.TextField(label='Nome:', hint_text='Digite seu nome')
-
+    salario = ft.Number()
+    # slider_salario = ft.Slider(divisions=190, min=1000, max=20000, on_change=altera)
+    # txt_slider = Text(value='', size=14)
 
 ft.app(main)
